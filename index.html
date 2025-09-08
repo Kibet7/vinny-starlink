@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service.starlink.ke</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@500;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #2b0a3a, #1a0630);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* New Starlink Satellite Animation */
+        .starlink-satellite {
+            position: fixed;
+            top: 30px;
+            left: -100px;
+            font-size: 24px;
+            color: white;
+            animation: floatSatellite 45s linear infinite;
+            z-index: 1;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 8px rgba(156, 77, 255, 0.7));
+        }
+        
+        @keyframes floatSatellite {
+            0% {
+                transform: translateX(-100px) rotate(0deg);
+            }
+            100% {
+                transform: translateX(calc(100vw + 100px)) rotate(360deg);
+            }
+        }
+        
+        .premium-container {
+            background: rgba(255, 255, 255, 0.97);
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            max-width: 580px;
+            width: 90%;
+            color: #333;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .premium-header {
+            position: relative;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+        
+        .premium-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 30%;
+            width: 40%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ff4d8d, #9c4dff, transparent);
+            border-radius: 4px;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin: 0;
+            color: #2b0a3a;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .service-badge {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 22px;
+            background: linear-gradient(135deg, #ff4d8d, #9c4dff);
+            border-radius: 24px;
+            font-size: 15px;
+            font-weight: 600;
+            color: white;
+            box-shadow: 0 6px 12px rgba(156, 77, 255, 0.2);
+            border: none;
+        }
+        
+        .package-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .premium-btn {
+            background: linear-gradient(135deg, #9c4dff, #6e3dcc);
+            color: white;
+            border: none;
+            padding: 16px 10px;
+            font-size: 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(156, 77, 255, 0.25);
+            position: relative;
+            overflow: hidden;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .premium-btn:nth-child(odd) {
+            background: linear-gradient(135deg, #ff4d8d, #ff2d72);
+            box-shadow: 0 5px 15px rgba(255, 77, 141, 0.25);
+        }
+        
+        .premium-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+        
+        .premium-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(156, 77, 255, 0.35);
+        }
+        
+        .premium-btn:nth-child(odd):hover {
+            box-shadow: 0 8px 20px rgba(255, 77, 141, 0.35);
+        }
+        
+        .premium-btn:hover::before {
+            left: 100%;
+        }
+        
+        .support-card {
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f9f3ff, #ffffff);
+            border-radius: 14px;
+            box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(156, 77, 255, 0.15);
+        }
+        
+        .support-title {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        .support-email {
+            color: #9c4dff;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background: rgba(156, 77, 255, 0.1);
+        }
+        
+        .support-email:hover {
+            color: #7d3dcc;
+            text-decoration: underline;
+            background: rgba(156, 77, 255, 0.15);
+        }
+        
+        /* Premium Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            max-width: 480px;
+            width: 90%;
+            color: #333;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .modal-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, #ff4d8d, #9c4dff);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 26px;
+            cursor: pointer;
+            color: #aaa;
+            transition: 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: #ff4d8d;
+            transform: rotate(90deg);
+        }
+        
+        .modal h2 {
+            margin-top: 0;
+            color: #2b0a3a;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 26px;
+        }
+        
+        .modal p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            color: #555;
+        }
+        
+        .proceed-btn {
+            background: linear-gradient(135deg, #9c4dff, #6e3dcc);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(156, 77, 255, 0.3);
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        .proceed-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(156, 77, 255, 0.4);
+        }
+        
+        /* Loading overlay */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            backdrop-filter: blur(5px);
+        }
+        
+        .spinner {
+            width: 70px;
+            height: 70px;
+            border: 6px solid rgba(243, 243, 243, 0.2);
+            border-top: 6px solid #9c4dff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 25px;
+        }
+        
+        .loading-text {
+            color: white;
+            font-size: 18px;
+            margin-top: 10px;
+            letter-spacing: 0.8px;
+            font-weight: 500;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .premium-container {
+                padding: 25px 20px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .starlink-satellite {
+                font-size: 18px;
+                top: 20px;
+                animation-duration: 30s;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Starlink Satellite Animation -->
+    <div class="starlink-satellite">
+        <i class="fas fa-satellite-dish"></i>
+    </div>
+    
+    <div class="premium-container">
+        <div class="premium-header">
+            <h1>Starlink Premium</h1>
+            <div class="service-badge">High-Speed Internet Packages</div>
+        </div>
+        
+        <div class="package-grid">
+            <button class="premium-btn" onclick="showPaymentModal('24 Hours - 7GB (Ksh 79)', '8526965')">24 Hours<br>7GB (Ksh 79)</button>
+            <button class="premium-btn" onclick="showPaymentModal('7 Days - 12GB (Ksh 89)', '8526965')">7 Days<br>12GB (Ksh 89)</button>
+            <button class="premium-btn" onclick="showPaymentModal('14 Days - 22GB (Ksh 110)', '8526965')">14 Days<br>22GB (Ksh 110)</button>
+            <button class="premium-btn" onclick="showPaymentModal('21 Days - 35GB (Ksh 130)', '8526965')">21 Days<br>35GB (Ksh 130)</button>
+            <button class="premium-btn" onclick="showPaymentModal('30 Days - 50GB (Ksh 159)', '8526965')">30 Days<br>50GB (Ksh 159)</button>
+            <button class="premium-btn" onclick="showPaymentModal('2 Months - Unlimited (Ksh 220)', '8526965')">2 Months<br>Unlimited (Ksh 220)</button>
+        </div>
+        
+        <div class="support-card">
+            <div class="support-title">Premium Support Available 24/7</div>
+            <a href="mailto:starlinkhelp01@gmail.com" class="support-email">starrlinkhelp.com</a>
+        </div>
+    </div>
+
+    <!-- Premium Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Confirm Package</h2>
+            <p>You've selected our premium package:</p>
+            <p><strong id="selectedPackage"></strong></p>
+            <p>Please follow these M-Pesa payment instructions:</p>
+            <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin: 15px 0; text-align: left;">
+                <p><strong>1.</strong> Go to M-Pesa on your phone</p>
+                <p><strong>2.</strong> Select <strong>Lipa na M-Pesa</strong></p>
+                <p><strong>3.</strong> Select <strong>Buy Goods</strong></p>
+                <p><strong>4.</strong> Enter Till Number: <strong id="tillNumber" style="background: #e0e0e0; padding: 2px 5px; border-radius: 4px;">8526965</strong> 
+                   <button onclick="copyTillNumber()" style="background: #9c4dff; color: white; border: none; padding: 2px 8px; border-radius: 4px; cursor: pointer; margin-left: 5px;">Copy</button></p>
+                <p><strong>5.</strong> Enter the amount shown for your package</p>
+                <p><strong>6.</strong> Enter your M-Pesa PIN and confirm <b>     Nexus VENTURES</b></p>
+            </div>
+            <p>Your package will be activated automatically after payment confirmation.</p>
+        </div>
+    </div>
+    
+    <!-- Loading overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">Processing your premium package...</div>
+    </div>
+
+    <script>
+        let paymentUrl = '';
+        
+        function showPaymentModal(packageName, tillNumber) {
+            document.getElementById('selectedPackage').textContent = packageName;
+            document.getElementById('tillNumber').textContent = tillNumber;
+            document.getElementById('paymentModal').style.display = 'flex';
+        }
+        
+        function closeModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+        
+        function copyTillNumber() {
+            const tillNumber = document.getElementById('tillNumber').textContent;
+            navigator.clipboard.writeText(tillNumber).then(() => {
+                alert('Till number copied to clipboard: ' + tillNumber);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+        
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('paymentModal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
