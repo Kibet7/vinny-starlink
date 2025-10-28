@@ -4,191 +4,202 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service.starlink.ke</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@500;600&display=swap');
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #4338CA;
+            --primary-light: #EEF2FF;
+            --accent: #10B981;
+            --dark: #1F2937;
+            --light: #FFFFFF;
+            --gray: #6B7280;
+            --dark-bg: #111827;
+        }
         
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #2b0a3a, #1a0630);
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: var(--dark-bg);
             min-height: 100vh;
-            color: #fff;
-            overflow-x: hidden;
-            position: relative;
+            color: var(--light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
         
-        /* New Starlink Satellite Animation */
-        .starlink-satellite {
-            position: fixed;
-            top: 30px;
-            left: -100px;
-            font-size: 24px;
-            color: white;
-            animation: floatSatellite 45s linear infinite;
-            z-index: 1;
-            opacity: 0.8;
-            filter: drop-shadow(0 0 8px rgba(156, 77, 255, 0.7));
-        }
-        
-        @keyframes floatSatellite {
-            0% {
-                transform: translateX(-100px) rotate(0deg);
-            }
-            100% {
-                transform: translateX(calc(100vw + 100px)) rotate(360deg);
-            }
-        }
-        
-        .premium-container {
-            background: rgba(255, 255, 255, 0.97);
-            padding: 30px;
-            border-radius: 18px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-            text-align: center;
-            max-width: 580px;
-            width: 90%;
-            color: #333;
-            margin: 20px 0;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(8px);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .premium-header {
-            position: relative;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-        }
-        
-        .premium-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 30%;
-            width: 40%;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, #ff4d8d, #9c4dff, transparent);
-            border-radius: 4px;
-        }
-        
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            margin: 0;
-            color: #2b0a3a;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        
-        .service-badge {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 8px 22px;
-            background: linear-gradient(135deg, #ff4d8d, #9c4dff);
-            border-radius: 24px;
-            font-size: 15px;
-            font-weight: 600;
-            color: white;
-            box-shadow: 0 6px 12px rgba(156, 77, 255, 0.2);
-            border: none;
-        }
-        
-        .package-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 30px 0;
-        }
-        
-        .premium-btn {
-            background: linear-gradient(135deg, #9c4dff, #6e3dcc);
-            color: white;
-            border: none;
-            padding: 16px 10px;
-            font-size: 15px;
+        .container {
+            background-color: var(--light);
             border-radius: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(156, 77, 255, 0.25);
-            position: relative;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
             overflow: hidden;
-            min-height: 60px;
+            margin: 20px 0;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 24px;
+            text-align: center;
+            color: var(--light);
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .payment-info {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 0 20px 20px;
+            text-align: center;
+            font-size: 15px;
+            border: 1px solid rgba(79, 70, 229, 0.2);
+        }
+        
+        .packages-container {
+            padding: 0 20px 20px;
+        }
+        
+        .package-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 16px;
+            overflow: hidden;
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s ease;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+            border-color: var(--primary);
+        }
+        
+        .package-header {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 14px 16px;
+            font-weight: 600;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .package-body {
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .package-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .package-features {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+        
+        .buy-btn {
+            background-color: var(--primary);
+            color: var(--light);
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 14px;
+        }
+        
+        .buy-btn:hover {
+            background-color: var(--primary-dark);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+        
+        .buy-btn i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+        
+        .inquiry {
+            background-color: #F9FAFB;
+            padding: 16px;
+            margin: 20px;
+            border-radius: 8px;
             text-align: center;
+            border: 1px solid #E5E7EB;
         }
         
-        .premium-btn:nth-child(odd) {
-            background: linear-gradient(135deg, #ff4d8d, #ff2d72);
-            box-shadow: 0 5px 15px rgba(255, 77, 141, 0.25);
-        }
-        
-        .premium-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: 0.5s;
-        }
-        
-        .premium-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(156, 77, 255, 0.35);
-        }
-        
-        .premium-btn:nth-child(odd):hover {
-            box-shadow: 0 8px 20px rgba(255, 77, 141, 0.35);
-        }
-        
-        .premium-btn:hover::before {
-            left: 100%;
-        }
-        
-        .support-card {
-            margin-top: 30px;
-            padding: 20px;
-            background: linear-gradient(135deg, #f9f3ff, #ffffff);
-            border-radius: 14px;
-            box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(156, 77, 255, 0.15);
-        }
-        
-        .support-title {
-            font-size: 16px;
-            color: #555;
+        .inquiry p {
+            color: var(--gray);
             margin-bottom: 12px;
-            font-weight: 500;
+            font-size: 14px;
         }
         
-        .support-email {
-            color: #9c4dff;
+        .email {
+            color: var(--primary);
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s;
-            display: inline-block;
-            padding: 6px 12px;
-            border-radius: 8px;
-            background: rgba(156, 77, 255, 0.1);
+            transition: all 0.2s;
+            font-size: 14px;
         }
         
-        .support-email:hover {
-            color: #7d3dcc;
+        .email:hover {
+            color: var(--primary-dark);
             text-decoration: underline;
-            background: rgba(156, 77, 255, 0.15);
         }
         
-        /* Premium Modal */
+        .whatsapp-btn {
+            background-color: var(--accent);
+            color: var(--light);
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 12px;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            background-color: #0CA678;
+        }
+        
+        .whatsapp-btn i {
+            margin-right: 8px;
+        }
+        
+        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -196,207 +207,303 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(0,0,0,0.7);
             z-index: 100;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(8px);
         }
         
         .modal-content {
-            background: white;
-            padding: 35px;
-            border-radius: 16px;
-            max-width: 480px;
+            background-color: var(--light);
+            border-radius: 10px;
+            max-width: 400px;
             width: 90%;
-            color: #333;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-            position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            animation: modalOpen 0.3s forwards;
         }
         
-        .modal-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 6px;
-            height: 100%;
-            background: linear-gradient(to bottom, #ff4d8d, #9c4dff);
+        @keyframes modalOpen {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h2 {
+            font-size: 18px;
         }
         
         .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 26px;
+            font-size: 22px;
             cursor: pointer;
-            color: #aaa;
-            transition: 0.3s;
+            color: var(--light);
+            transition: all 0.2s;
         }
         
         .close-modal:hover {
-            color: #ff4d8d;
             transform: rotate(90deg);
         }
         
-        .modal h2 {
-            margin-top: 0;
-            color: #2b0a3a;
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            font-size: 26px;
+        .modal-body {
+            padding: 20px;
+            color: var(--gray);
         }
         
-        .modal p {
-            font-size: 16px;
-            margin-bottom: 25px;
-            color: #555;
+        .modal-body p {
+            margin-bottom: 20px;
+            font-size: 15px;
         }
         
         .proceed-btn {
-            background: linear-gradient(135deg, #9c4dff, #6e3dcc);
-            color: white;
+            background-color: var(--primary);
+            color: var(--light);
             border: none;
-            padding: 16px;
-            border-radius: 10px;
+            padding: 12px;
+            border-radius: 6px;
             font-weight: 600;
             width: 100%;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(156, 77, 255, 0.3);
-            font-size: 16px;
-            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
         }
         
         .proceed-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(156, 77, 255, 0.4);
+            background-color: var(--primary-dark);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
         }
         
-        /* Loading overlay */
-        .loading-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            z-index: 1000;
-            justify-content: center;
+        .proceed-btn i {
+            margin-right: 8px;
+        }
+
+        /* M-Pesa payment instructions */
+        .mpesa-instructions {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #e9ecef;
+        }
+
+        .mpesa-instructions h3 {
+            color: var(--primary);
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .mpesa-instructions ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .mpesa-instructions li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .till-number {
+            display: flex;
             align-items: center;
-            flex-direction: column;
-            backdrop-filter: blur(5px);
-        }
-        
-        .spinner {
-            width: 70px;
-            height: 70px;
-            border: 6px solid rgba(243, 243, 243, 0.2);
-            border-top: 6px solid #9c4dff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 25px;
-        }
-        
-        .loading-text {
-            color: white;
-            font-size: 18px;
+            justify-content: space-between;
+            background-color: #e9f7ef;
+            padding: 10px 15px;
+            border-radius: 6px;
             margin-top: 10px;
-            letter-spacing: 0.8px;
-            font-weight: 500;
+            border: 1px solid #d1e7dd;
         }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+
+        .till-number span {
+            font-weight: bold;
+            color: #0f5132;
         }
-        
+
+        .copy-till-btn {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .copy-till-btn:hover {
+            background-color: #0b5ed7;
+        }
+
+        .copy-till-btn i {
+            margin-right: 5px;
+        }
+
         /* Responsive adjustments */
-        @media (max-width: 600px) {
-            .package-grid {
-                grid-template-columns: 1fr;
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 20px;
             }
             
-            .premium-container {
-                padding: 25px 20px;
+            .package-header {
+                font-size: 15px;
+                padding: 12px;
             }
             
-            h1 {
-                font-size: 28px;
-            }
-            
-            .starlink-satellite {
+            .package-price {
                 font-size: 18px;
-                top: 20px;
-                animation-duration: 30s;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Starlink Satellite Animation -->
-    <div class="starlink-satellite">
-        <i class="fas fa-satellite-dish"></i>
-    </div>
-    
-    <div class="premium-container">
-        <div class="premium-header">
-            <h1>Starlink Premium</h1>
-            <div class="service-badge">High-Speed Internet Packages</div>
+    <div class="container">
+        <div class="header">
+            <h1>Select a Package</h1>
+            <div class="payment-info">Starlink Home <i>(Pay via M-Pesa)</i></div>
         </div>
         
-        <div class="package-grid">
-            <button class="premium-btn" onclick="showPaymentModal('24 Hours - 7GB (Ksh 79)', '6713386')">24 Hours<br>7GB (Ksh 79)</button>
-            <button class="premium-btn" onclick="showPaymentModal('7 Days - 12GB (Ksh 89)', '6713386')">7 Days<br>12GB (Ksh 89)</button>
-            <button class="premium-btn" onclick="showPaymentModal('14 Days - 22GB (Ksh 110)', '6713386')">14 Days<br>22GB (Ksh 110)</button>
-            <button class="premium-btn" onclick="showPaymentModal('21 Days - 35GB (Ksh 130)', '6713386')">21 Days<br>35GB (Ksh 130)</button>
-            <button class="premium-btn" onclick="showPaymentModal('30 Days - 50GB (Ksh 159)', '6713386')">30 Days<br>50GB (Ksh 159)</button>
-            <button class="premium-btn" onclick="showPaymentModal('2 Months - Unlimited (Ksh 220)', '6713386')">2 Months<br>Unlimited (Ksh 220)</button>
+        <div class="packages-container">
+            <!-- Package 1 -->
+            <div class="package-card">
+                <div class="package-header">
+                    <span>Daily - 5GB</span>
+                </div>
+                <div class="package-body">
+                    <div class="package-features">
+                        <div>High-speed internet</div>
+                        <div>Works on all networks</div>
+                    </div>
+                    <div>
+                        <div class="package-price">Ksh 45</div>
+                        <button class="buy-btn" onclick="showPaymentModal('Daily - 5GB (Ksh 45)')">
+                            <i class="fas fa-shopping-cart"></i> Buy
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Package 2 -->
+            <div class="package-card">
+                <div class="package-header">
+                    <span>7 Days - 15GB</span>
+                </div>
+                <div class="package-body">
+                    <div class="package-features">
+                        <div>High-speed internet</div>
+                        <div>Works on all networks</div>
+                    </div>
+                    <div>
+                        <div class="package-price">Ksh 65</div>
+                        <button class="buy-btn" onclick="showPaymentModal('7 Days - 15GB (Ksh 65)')">
+                            <i class="fas fa-shopping-cart"></i> Buy
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Package 3 -->
+            <div class="package-card">
+                <div class="package-header">
+                    <span>3 Weeks - 25GB</span>
+                </div>
+                <div class="package-body">
+                    <div class="package-features">
+                        <div>High-speed internet</div>
+                        <div>Works on all networks</div>
+                    </div>
+                    <div>
+                        <div class="package-price">Ksh 80</div>
+                        <button class="buy-btn" onclick="showPaymentModal('3 Weeks - 25GB (Ksh 80)')">
+                            <i class="fas fa-shopping-cart"></i> Buy
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Package 4 -->
+            <div class="package-card">
+                <div class="package-header">
+                    <span>Monthly - UNLIMITED</span>
+                </div>
+                <div class="package-body">
+                    <div class="package-features">
+                        <div>High-speed internet</div>
+                        <div>Works on all networks</div>
+                    </div>
+                    <div>
+                        <div class="package-price">Ksh 110</div>
+                        <button class="buy-btn" onclick="showPaymentModal('Monthly - UNLIMITED (Ksh 110)')">
+                            <i class="fas fa-shopping-cart"></i> Buy
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
         
-        <div class="support-card">
-            <div class="support-title">Premium Support Available 24/7</div>
-            <a href="mailto:starlinkhelp01@gmail.com" class="support-email">starrlinkhelp.com</a>
+        <div class="inquiry">
+            <p>In case of inquiry, contact us at:</p>
+            <a href="mailto:starrlink2054@gmail.com" class="email">email us</a>
         </div>
     </div>
 
-    <!-- Premium Modal -->
+    <!-- Confirmation Modal -->
     <div id="paymentModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2>Confirm Package</h2>
-            <p>You've selected our premium package:</p>
-            <p><strong id="selectedPackage"></strong></p>
-            <p>Please follow these M-Pesa payment instructions:</p>
-            <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin: 15px 0; text-align: left;">
-                <p><strong>1.</strong> Go to M-Pesa on your phone</p>
-                <p><strong>2.</strong> Select <strong>Lipa na M-Pesa</strong></p>
-                <p><strong>3.</strong> Select <strong>Buy Goods</strong></p>
-                <p><strong>4.</strong> Enter Till Number: <strong id="tillNumber" style="background: #e0e0e0; padding: 2px 5px; border-radius: 4px;">6713386</strong> 
-                   <button onclick="copyTillNumber()" style="background: #9c4dff; color: white; border: none; padding: 2px 8px; border-radius: 4px; cursor: pointer; margin-left: 5px;">Copy</button></p>
-                <p><strong>5.</strong> Enter the amount shown for your package</p>
-                <p><strong>6.</strong> Enter your M-Pesa PIN and confirm <b>     Nexus VENTURES</b></p>
+            <div class="modal-header">
+                <h2>Payment Instructions</h2>
+                <span class="close-modal" onclick="closeModal()">&times;</span>
             </div>
-            <p>Your package will be activated automatically after payment confirmation.</p>
+            <div class="modal-body">
+                <div class="mpesa-instructions">
+                    <h3>How to Pay via M-Pesa</h3>
+                    <ol>
+                        <li>Go to M-Pesa on your phone</li>
+                        <li>Select "buy Goods" option</li>
+                        <li>Enter till Number: <strong>6713386</strong></li>
+                        <li>Enter Amount: <strong id="packageAmount"></strong></li>
+                        <li>Enter your M-Pesa PIN and send</li>
+                        <li>Wait for confirmation SMS <b>(Nexus Ventures) </b></li>
+                    </ol>
+                    <div class="till-number">
+                        <span>Business Number: 6713386</span>
+                        <button class="copy-till-btn" onclick="copyToClipboard('3750234')">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                </div>
+                <p>You have selected: <strong id="selectedPackage"></strong></p>
+                <p>After payment, your service will be activated within 5 minutes.</p>
+            </div>
         </div>
-    </div>
-    
-    <!-- Loading overlay -->
-    <div id="loadingOverlay" class="loading-overlay">
-        <div class="spinner"></div>
-        <div class="loading-text">Processing your premium package...</div>
     </div>
 
     <script>
-        let paymentUrl = '';
-        
-        function showPaymentModal(packageName, tillNumber) {
+        function showPaymentModal(packageName) {
             document.getElementById('selectedPackage').textContent = packageName;
-            document.getElementById('tillNumber').textContent = tillNumber;
+            
+            // Extract price from package name
+            const priceMatch = packageName.match(/Ksh (\d+)/);
+            if (priceMatch && priceMatch[1]) {
+                document.getElementById('packageAmount').textContent = 'Ksh ' + priceMatch[1];
+            }
+            
             document.getElementById('paymentModal').style.display = 'flex';
         }
         
@@ -404,15 +511,15 @@
             document.getElementById('paymentModal').style.display = 'none';
         }
         
-        function copyTillNumber() {
-            const tillNumber = document.getElementById('tillNumber').textContent;
-            navigator.clipboard.writeText(tillNumber).then(() => {
-                alert('Till number copied to clipboard: ' + tillNumber);
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('Copied to clipboard: ' + text);
+            }, function(err) {
+                console.error('Could not copy text: ', err);
             });
         }
         
+        // Close modal when clicking outside
         window.onclick = function(event) {
             if (event.target == document.getElementById('paymentModal')) {
                 closeModal();
